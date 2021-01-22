@@ -7,7 +7,7 @@ import {useState} from 'react'
 import styled from 'styled-components'
 
 const SearchInput = styled(Input.Search)`
-    verticalAlgin:middle
+    vertical-align:middle;
 `;
 
 const AppLayout = ({children}) => {
@@ -30,7 +30,7 @@ const AppLayout = ({children}) => {
         </Menu>
         <Row gutter={8}>
             <Col xs={24} md={6}>
-                {isLoggedIn ? <UserProfile /> : <LoginForm />}
+                {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
             </Col>
             <Col xs={24} md={12}>
               {children}
