@@ -1,7 +1,7 @@
 export const initialState ={
     mainPosts:[{
         id: 1,
-        user:{
+        User:{
             id:1,
             nickname:'제로초',
         },
