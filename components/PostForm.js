@@ -2,6 +2,7 @@ import {Form, Input,Button} from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useCallback,useRef } from 'react';
 import {addPost} from '../reducers/post'
+
 const PostForm = () => {
     const {imagePaths} = useSelector((state)=>state.post);
     const dispatch=useDispatch();
