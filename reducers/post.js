@@ -7,9 +7,14 @@ export const initialState ={
         },
         content:'첫번째 게시글 #해시태그 #익스프레스',
         Images:[
-            {src: 'https://images.app.goo.gl/biC6mM7WzBApNwNR7'},
-            {src:'https://images.app.goo.gl/bMfV8H8zA1tZWogo9'},
-            {src:'https://images.app.goo.gl/TRVJwFZD6YUGxNjr5'}
+            {src: 'https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg'},
+            {
+            src: 'https://gimg.gilbut.co.kr/book/BN001958/rn_view_BN001958.jpg',
+            }, 
+            {
+            src: 'https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg',
+            }
+            
         ],
         Comments:[{
             User:{
