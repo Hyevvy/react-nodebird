@@ -3,7 +3,6 @@ import Slick from 'react-slick'
 import {useState} from 'react'
 import  {Header,Overlay, CloseBtn, SlickWrapper, ImgWrapper,Indicator,Global} from './styles'
 
-
 const ImagesZoom = ({images, onClose}) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     return(

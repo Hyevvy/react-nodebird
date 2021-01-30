@@ -1,39 +1,79 @@
-export const initialState ={
-    isLoggedIn : false,
-    me: null,
-    signUpData:{},
-    loginData:{}
-}
+export const initialState = {
+  isLoggedIn: false,
+  me: null,
+  signUpData: {},
+  loginData: {},
+};
 
 export const loginAction = (data) => {
-    return {
-        type:'LOG_IN',
-        data
-    }
-}
+  return (dispatch, getState) => {
+    const state = getState();
+    dispatch(loginRequestAction());
+    axios
+      .post("/api/login")
+      .then(() => {
+        dispatch(loginSuccessAction());
+      })
+      .catch(() => {
+        dispatch(loginFailureAction(err));
+      });
+  };
+};
+export const loginRequestAction = (data) => {
+  return {
+    type: "LOG_IN",
+    data,
+  };
+};
 
-export const logoutAction = () => {
-    return {
-        type:'LOG_OUT',
-    }
-}
+export const loginSuccessAction = (data) => {
+  return {
+    type: "LOG_IN",
+    data,
+  };
+};
 
-const reducer = (state=initialState, action) =>{
-    switch(action.type){
-        case 'LOG_IN':
-            return{
-                ...state,
-                isLoggedIn:true,
-                me:action.data,
-            }
-        case 'LOG_OUT':
-            return{
-                ...state,
-                isLoggedIn:false,
-                me:null
-            }
-        default:
-            return state;
-    }
-}
+export const loginFailureAction = (data) => {
+  return {
+    type: "LOG_IN",
+    data,
+  };
+};
+
+export const logoutRequestAction = () => {
+  return {
+    type: "LOG_OUT",
+  };
+};
+
+export const logoutSuccessAction = () => {
+  return {
+    type: "LOG_OUT",
+  };
+};
+
+export const logoutRequestFailure = () => {
+  return {
+    type: "LOG_OUT",
+  };
+};
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "LOG_IN":
+      return {
+        ...state,
+        isLoggedIn: true,
+        me: action.data,
+      };
+    case "LOG_OUT":
+      return {
+        ...state,
+        isLoggedIn: false,
+        me: null,
+      };
+    default:
+      return state;
+  }
+};
 export default reducer;
